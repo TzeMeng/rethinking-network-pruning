@@ -1,4 +1,5 @@
 from __future__ import print_function
+from tqdm import tqdm
 
 import argparse
 import os
@@ -184,7 +185,7 @@ def main():
         return
 
     # Train and val
-    for epoch in range(start_epoch, args.epochs):
+    for epoch in tqdm(range(start_epoch, args.epochs)):
         adjust_learning_rate(optimizer, epoch)
 
         print('\nEpoch: [%d | %d] LR: %f' % (epoch + 1, args.epochs, state['lr']))
